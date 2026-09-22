@@ -22,13 +22,16 @@ small{color:#666}
 <div class="row"><span class="label">Banco:</span> Banco Azteca</div>
 <div class="row"><span class="label">Nombre:</span> Ivonne Hernandez Martinez</div>
 <div class="row"><span class="label">CLABE:</span> <strong id="clabe">127180001292340419</strong></div>
+<div class="row"><span class="label">Comprobante:</span> <strong id="telefono">5615374374</strong></div>
 </div>
 <button id="copy">Copiar CLABE</button>
+<button id="copyTel" style="margin-top:10px">Copiar teléfono</button>
 <div id="status"></div>
 <small>Gracias por su compra y preferencia</small>
 </div>
 <script>
 const clabe="127180001292340419";
+const telefono="5615374374";
 async function copiar(){
   try{
     await navigator.clipboard.writeText(clabe);
@@ -38,6 +41,7 @@ async function copiar(){
   }
 }
 document.getElementById("copy").addEventListener("click",copiar);
+document.getElementById("copyTel").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(telefono);document.getElementById("status").textContent="✓ Teléfono copiado al portapapeles";}catch(e){document.getElementById("status").textContent="Pulsa nuevamente para copiar el teléfono.";}});
 window.addEventListener("load",()=>setTimeout(copiar,300));
 </script>
 </body>
